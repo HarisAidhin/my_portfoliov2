@@ -212,6 +212,7 @@
   margin-bottom: 40px;
   z-index: 2;
   position: relative;
+  flex-wrap: wrap;
 }
 
 .social-btn {
@@ -242,6 +243,19 @@
 
 .youtube{
     background-color: red;
+}
+
+
+@media(max-width:500px){
+   .typing {
+      font-size: 20px;
+      color: var(--accent);
+      border-right: .15em solid var(--accent);
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 3s steps(30, end) forwards, blink .7s step-end infinite;
+    } 
 }
 
   </style>
