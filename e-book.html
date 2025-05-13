@@ -1,0 +1,81 @@
+<!-- FILE: index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>E-book by Hrsar</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <p><strong>Selamat Datang di E-book</strong></p>
+            <button id="toggle-mode">🌙</button>
+        </div>
+
+        <div class="menu2">
+            <ul>
+                <li><a href="index.html"><span>Home</span></a></li>
+                <li><a href="#"><span>Judul Buku</span></a>
+                    <ul>
+                        <li><a href="book-html.html"><span>HTML</span></a></li>
+                        <li><a href="book-css.html"><span>CSS</span></a></li>
+                        <li><a href="book-js.html"><span>JS</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="kontaksaya.html"><span>Kontak saya</span></a></li>
+                <li><a href="tentangebook.html"><span>Tentang e-book</span></a></li>
+                <li><a href="#" id="continue-reading"><span>Lanjutkan terakhir dibaca</span></a></li>
+            </ul>
+             &copy; 2025 HARIS AIDHIN RAMADHAN. Keep building. Keep breaking limits.
+        </div>
+
+        <div class="content">
+            <p>Silakan pilih salah satu topik dari menu di atas untuk mulai belajar!</p>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+<script>
+// Dark mode toggle
+const toggleBtn = document.getElementById('toggle-mode');
+toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+});
+
+// Load dark mode preference
+if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark-mode');
+}
+
+// Bookmark system
+const links = document.querySelectorAll('a[href$=".html"]');
+links.forEach(link => {
+    link.addEventListener('click', () => {
+        localStorage.setItem('lastPage', link.getAttribute('href'));
+    });
+});
+
+document.getElementById('continue-reading').addEventListener('click', () => {
+    const lastPage = localStorage.getItem('lastPage');
+    if (lastPage) window.location.href = lastPage;
+    else alert('Belum ada halaman yang dibaca sebelumnya.');
+});
+
+// Search (sederhana hanya di halaman ini)
+document.getElementById('search-input').addEventListener('input', function() {
+    const val = this.value.toLowerCase();
+    document.querySelectorAll('.content p').forEach(p => {
+        p.style.display = p.textContent.toLowerCase().includes(val) ? 'block' : 'none';
+    });
+});
+</script>

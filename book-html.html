@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Book HTML Dasar</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="header">
+    <h1>Pengenalan HTML</h1>
+    <div class="header-buttons">
+      <input type="search" id="searchInput" placeholder="Cari konten...">
+      <button id="darkModeToggle">🌓</button>
+    </div>
+  </header>
+
+  <nav class="nav-transisi">
+    <a href="book-html.html" class="nav-link current">HTML</a>
+    <a href="book-css.html" class="nav-link">CSS</a>
+    <a href="book-js.html" class="nav-link">JavaScript</a>
+    <a href="e-book.html" class="nav-link">Home</a>
+  </nav>
+
+  <div class="container fade-in">
+    <section class="intro">
+      <h2>Apa itu HTML?</h2>
+      <p>
+        HTML (Hypertext Markup Language) adalah bahasa markup yang digunakan untuk membuat struktur halaman web. HTML mendefinisikan elemen-elemen dalam halaman web seperti teks, gambar, dan link.
+      </p>
+    </section>
+
+    <section class="theory">
+      <h2>Contoh Kode HTML</h2>
+      <div class="code-container">
+        <pre><code id="htmlExample" class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="id"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Judul Halaman&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Halo Dunia!&lt;/h1&gt;
+    &lt;p&gt;Ini adalah paragraf pertama.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+      </div>
+    </section>
+    
+    <section class="interactive">
+      <h2>Editor Interaktif HTML</h2>
+      <textarea id="htmlEditor" rows="10">&lt;h1&gt;Halo Dunia!&lt;/h1&gt;</textarea>
+      <button onclick="runHTML()">Jalankan</button>
+    </section>
+
+    <section class="quiz">
+      <h2>Latihan Soal</h2>
+      <p>Apa elemen untuk membuat heading terbesar?</p>
+      <select id="quiz1">
+        <option value="">Pilih jawaban</option>
+        <option value="h1">h1</option>
+        <option value="h2">h2</option>
+        <option value="h3">h3</option>
+      </select>
+      <button onclick="checkQuiz1()">Cek Jawaban</button>
+      <p id="quizFeedback1"></p>
+    </section>
+  </div>
+
+  <script>
+    // Bookmark sistem
+    localStorage.setItem("lastRead", "book-html.html");
+
+    // Dark mode
+    const toggle = document.getElementById('darkModeToggle');
+    toggle.onclick = () => {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    };
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+
+    // Search
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', () => {
+      const term = searchInput.value.toLowerCase();
+      document.querySelectorAll('.container section').forEach(sec => {
+        sec.style.display = sec.textContent.toLowerCase().includes(term) ? 'block' : 'none';
+      });
+    });
+
+    // Quiz check
+    function checkQuiz1() {
+      const answer = document.getElementById('quiz1').value;
+      const feedback = document.getElementById('quizFeedback1');
+      feedback.textContent = answer === 'h1' ? '✅ Benar!' : '❌ Salah, coba lagi.';
+    }
+
+    // Editor interaktif
+    function runHTML() {
+      const output = document.getElementById('htmlEditor').value;
+      const container = document.querySelector('.container');
+      const resultDiv = document.createElement('div');
+      resultDiv.innerHTML = output;
+      container.appendChild(resultDiv);
+    }
+
+    // Transisi
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const href = this.getAttribute('href');
+        document.querySelector('.container').classList.remove('fade-in');
+        document.querySelector('.container').classList.add('fade-out');
+        setTimeout(() => {
+          window.location.href = href;
+        }, 400);
+      });
+    });
+
+    // Animasi kode HTML
+    const codeContainer = document.getElementById('htmlExample');
+    let codeContent = codeContainer.textContent;
+    codeContainer.textContent = '';
+    let index = 0;
+
+    function animateCode() {
+      if (index < codeContent.length) {
+        codeContainer.textContent += codeContent.charAt(index);
+        index++;
+        setTimeout(animateCode, 50);
+      }
+    }
+    animateCode();
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      transition: background 0.3s, color 0.3s;
+    }
+    .dark-mode {
+      background: #121212;
+      color: #eee;
+    }
+    .header {
+      background: dodgerblue;
+      color: white;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .header input {
+      padding: 6px;
+      border-radius: 4px;
+      border: none;
+    }
+    .container {
+      padding: 20px;
+    }
+    .responsive-img {
+      max-width: 100%;
+      height: auto;
+    }
+    .nav-transisi {
+      display: flex;
+      justify-content: center;
+      background: #eee;
+      gap: 10px;
+      padding: 10px;
+    }
+    .nav-link {
+      text-decoration: none;
+      color: black;
+      padding: 6px 12px;
+      background: white;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+    .nav-link:hover, .nav-link.current {
+      background: dodgerblue;
+      color: white;
+    }
+    .fade-in {
+      animation: fadeIn 0.4s ease-in-out;
+    }
+    .fade-out {
+      animation: fadeOut 0.4s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeOut {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(-20px); }
+    }
+
+    .code-container {
+      background-color: #f4f4f4;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow-x: auto;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  </style>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tentang E-Book</title>
+  <style>
+    :root {
+      --primary: #e74c3c;
+      --text: #333;
+      --bg: #fff;
+      --secondary-bg: #f9f9f9;
+    }
+
+    body.dark-mode {
+      --bg: #1e1e1e;
+      --text: #f1f1f1;
+      --secondary-bg: #2b2b2b;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background-color 0.4s, color 0.4s;
+    }
+
+    header {
+      background-color: var(--secondary-bg);
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 2px solid var(--primary);
+    }
+    
+    .back{
+        background: rgb(197, 206, 213);
+        width: 100px;
+        height: 30px;
+        float: right;
+    }
+    .back a{
+        color: #1e1e1e;
+        list-style: none;
+        text-decoration: underline;
+        text-align: center;
+        margin: 26px;
+    }
+    .back a:hover,:focus {
+    color: #ffffff;
+    background: #008cff;
+    border: 1px solid #008cff;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+    box-shadow: 0 0 5px #008cff, 0 0 20px #008cff, 0 0 50px #008cff,
+      0 0 100px #008cff;
+}
+    .animated-title {
+      font-size: 2.2em;
+      color: var(--primary);
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h2, h3 {
+      color: var(--primary);
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      background-color: var(--secondary-bg);
+      color: var(--text);
+      border-top: 1px solid #ccc;
+    }
+
+    .toggle-darkmode {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      z-index: 1000;
+    }
+
+    .toggle-darkmode:hover {
+      background: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-darkmode" id="toggle-mode">🌓 Mode</button>
+
+  <header>
+    <h1 class="animated-title">Tentang E-Book Ini</h1>
+  </header>
+
+  <div class="content">
+    <h2>Halo 👋</h2>
+    <p>Selamat datang di E-Book interaktif ini! Website ini dibuat sebagai media belajar yang simpel, ringan, dan mudah dipahami untuk kamu yang ingin mulai memahami dasar-dasar pemrograman web.</p>
+
+    <h3>Tujuan Website Ini</h3>
+    <ul>
+      <li>Memberikan materi dasar tentang HTML, CSS, dan JavaScript secara bertahap.</li>
+      <li>Membantu kamu belajar coding dengan tampilan yang enak dilihat dan fitur yang berguna.</li>
+      <li>Menyediakan fitur seperti mode gelap, bookmark otomatis, dan navigasi yang mudah.</li>
+    </ul>
+
+    <h3>Kenapa dibuat?</h3>
+    <p>Kadang belajar lewat buku itu kerasa kaku atau monoton. Nah, e-book ini hadir buat ngasih alternatif yang lebih interaktif dan fun. Jadi kamu bisa belajar sambil klik-klik dan eksplorasi langsung dari browser.</p>
+
+    <h3>Siapa yang buat?</h3>
+    <p>Website ini dikembangkan oleh seseorang yang belajar otodidak dan suka eksperimen dengan teknologi. Tujuannya sederhana: bantu sesama yang mau mulai ngoding tapi bingung harus mulai dari mana.</p>
+
+    <h3>Catatan Kecil</h3>
+    <p>Materi di sini disusun sesimpel mungkin, tapi jangan ragu buat cari referensi tambahan dari sumber lain ya! Semakin banyak eksplorasi, semakin cepat paham 😄</p>
+
+    <p style="margin-top: 40px; font-style: italic;">Semoga website ini bermanfaat, dan selamat belajar!</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Belajar Bareng Bersama Haris 😄</p>
+  </footer>
+ <div class="back">
+    <a href="e-book.html">Home</a>
+  </div>
+  <script>
+    const toggleBtn = document.getElementById('toggle-mode');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    });
+
+    // Load mode preferensi
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark-mode');
+    }
+  </script>
+</body>
+</html>
