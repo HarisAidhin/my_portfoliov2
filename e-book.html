@@ -12,7 +12,6 @@
       --accent: #333;
       --hover: #ddd;
     }
-
     body.dark-mode {
       --bg: #121212;
       --text: #eaeaea;
@@ -20,23 +19,36 @@
       --accent: #eee;
       --hover: #333;
     }
-
     * {
       box-sizing: border-box;
-    }
-
-    body {
       margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
       font-family: 'Segoe UI', sans-serif;
       background-color: var(--bg);
       color: var(--text);
       transition: 0.3s ease;
+      position: relative;
+    }
+
+    canvas#particle-canvas {
+      position: fixed;
+      z-index: 0;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
     }
 
     .wrap {
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      position: relative;
+      z-index: 1;
     }
 
     .header {
@@ -49,9 +61,8 @@
     }
 
     .header p {
-      margin: 0;
-      font-weight: bold;
       font-size: 1.2rem;
+      font-weight: bold;
     }
 
     #toggle-mode {
@@ -62,7 +73,6 @@
       color: var(--text);
       transition: transform 0.2s;
     }
-
     #toggle-mode:hover {
       transform: scale(1.1);
     }
@@ -71,12 +81,11 @@
       background: var(--bg);
       padding: 15px 20px;
       border-bottom: 1px solid #ccc;
+      text-align: center;
     }
 
     .menu2 ul {
       list-style: none;
-      padding: 0;
-      margin: 0;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
@@ -93,8 +102,7 @@
       border-radius: 25px;
       background: var(--accent);
       color: white;
-      transition: background 0.3s ease;
-      display: inline-block;
+      transition: background 0.3s;
     }
 
     .menu2 ul li a:hover {
@@ -121,7 +129,11 @@
     .menu2 ul li ul li a {
       background: none;
       color: var(--text);
-      padding: 10px;
+    }
+
+    .menu2 > div {
+      font-size: 0.9rem;
+      margin-top: 10px;
     }
 
     .content {
@@ -142,13 +154,6 @@
       margin: 0 auto;
     }
 
-    .menu2 {
-      text-align: center;
-      font-size: 0.9rem;
-      margin-top: 10px;
-    }
-
-    /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(15px); }
       to { opacity: 1; transform: translateY(0); }
@@ -163,66 +168,170 @@
       50% { border-color: transparent; }
     }
 
-    /* Responsive adjustments */
-    @media screen and (max-width: 768px) {
-      .header p {
-        font-size: 1rem;
-      }
-
-      .menu2 ul {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .menu2 ul li ul {
-        position: static;
-        border: none;
-      }
-
-      .typing {
-        font-size: 1.1rem;
-      }
-      
-      @media(max-width:400px){
-        .typing {
-      font-size: 5px;
-      color: var(--accent);
-      border-right: .15em solid var(--accent);
-      white-space: nowrap;
-      overflow: hidden;
-      width: 0;
-      animation: typing 3s steps(30, end) forwards, blink .7s step-end infinite;
-    } 
-      }
-      @media(max-width:500px){
-   .typing {
-      font-size: 12px;
-      color: var(--accent);
-      border-right: .15em solid var(--accent);
-      white-space: nowrap;
-      overflow: hidden;
-      width: 0;
-      animation: typing 3s steps(30, end) forwards, blink .7s step-end infinite;
-    } 
-    
-}
-@media(max-width:610px){
-    .typing {
-      font-size: 12px;
-      color: var(--accent);
-      border-right: .15em solid var(--accent);
-      white-space: nowrap;
-      overflow: hidden;
-      width: 0;
-      animation: typing 3s steps(30, end) forwards, blink .7s step-end infinite;
-    } 
-}
-
+    .welcome-screen, .farewell-screen, .loader-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      text-align: center;
+      padding: 20px;
+      animation: fadeIn 1s ease;
     }
+
+    .welcome-screen input, .welcome-screen button {
+      margin-top: 10px;
+    }
+
+    .welcome-screen input {
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      width: 80%;
+      max-width: 300px;
+    }
+
+    .welcome-screen button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+    }
+
+    .welcome-screen button:hover {
+      background: var(--hover);
+      color: var(--text);
+    }
+
+    .content button {
+      margin-top: 40px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+    }
+
+    .content button:hover {
+      background: var(--hover);
+      color: var(--text);
+    }
+
+    @media screen and (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .header p {
+    font-size: 1rem;
+  }
+
+  .menu2 ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu2 ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu2 ul li a {
+    display: block;
+    width: 90%;
+    margin: 5px auto;
+  }
+
+  .menu2 ul li ul {
+    position: static;
+    display: none;
+    width: 100%;
+  }
+
+  .menu2 ul li:hover ul {
+    display: flex;
+  }
+
+  .typing {
+    font-size: 1.1rem;
+  }
+
+  .welcome-screen input {
+    width: 90%;
+  }
+
+  .content {
+    padding: 20px 10px;
+  }
+
+  .content button {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .typing {
+    white-space: normal;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .header p {
+    font-size: 0.95rem;
+  }
+
+  .typing {
+    font-size: 1rem;
+  }
+
+  .welcome-screen h2,
+  .welcome-screen p {
+    font-size: 1rem;
+  }
+
+  .menu2 > div {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .typing {
+    font-size: 10px;
+  }
+
+  .menu2 ul li a {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  .content button {
+    font-size: 0.9rem;
+  }
+}
+
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <canvas id="particle-canvas"></canvas>
+
+  <div class="loader-screen" id="loaderScreen">
+    <h2>Memuat e-book...</h2>
+    <p>Tunggu sebentar yaa</p>
+  </div>
+
+  <div class="wrap" style="display:none">
     <div class="header">
       <p>Selamat Datang di E-book</p>
       <button id="toggle-mode">🌙</button>
@@ -230,8 +339,8 @@
 
     <div class="menu2">
       <ul>
-        <li><a href="index.html"><span>Home</span></a></li>
-        <li><a href="#"><span>Judul Buku</span></a>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Judul Buku</a>
           <ul>
             <li><a href="book-html.html">HTML</a></li>
             <li><a href="book-css.html">CSS</a></li>
@@ -247,35 +356,138 @@
 
     <div class="content">
       <p class="typing">Silakan pilih salah satu topik dari menu di atas untuk mulai belajar!</p>
+      <button onclick="showFarewell()">Selesai Membaca</button>
     </div>
   </div>
 
+  <!-- Welcome Screen -->
+  <div class="welcome-screen" id="welcomeScreen">
+    <h2>Selamat datang di e-book!</h2>
+    <p>Masukkan nama kamu dulu yaa :)</p>
+    <input type="text" id="username" placeholder="Nama Kamu"/>
+    <button onclick="startReading()">Mulai Belajar</button>
+  </div>
+
+  <!-- Farewell Screen -->
+  <div class="farewell-screen" id="farewellScreen" style="display:none">
+    <h2 id="farewellText">Terima kasih!</h2>
+  </div>
+
   <script>
-    // Dark mode toggle
+    // Loader
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loaderScreen').style.display = 'none';
+        document.querySelector('.wrap').style.display = 'flex';
+      }, 1000);
+    });
+
+    // Dark Mode
     const toggleBtn = document.getElementById('toggle-mode');
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
       localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
     });
-
-    // Load preference
     if (localStorage.getItem('darkMode') === 'true') {
       document.body.classList.add('dark-mode');
     }
 
-    // Bookmark system
-    const links = document.querySelectorAll('a[href$=".html"]');
-    links.forEach(link => {
+    // Last page
+    document.querySelectorAll('a[href$=".html"]').forEach(link => {
       link.addEventListener('click', () => {
         localStorage.setItem('lastPage', link.getAttribute('href'));
       });
     });
-
     document.getElementById('continue-reading').addEventListener('click', () => {
       const lastPage = localStorage.getItem('lastPage');
-      if (lastPage) window.location.href = lastPage;
+      if (lastPage) location.href = lastPage;
       else alert('Belum ada halaman yang dibaca sebelumnya.');
     });
+
+    // Welcome
+    const welcomeScreen = document.getElementById('welcomeScreen');
+    const farewellScreen = document.getElementById('farewellScreen');
+    const usernameInput = document.getElementById('username');
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedName = localStorage.getItem('ebookName');
+      if (!savedName) welcomeScreen.style.display = 'flex';
+    });
+
+    function startReading() {
+      const name = usernameInput.value.trim();
+      if (name !== '') {
+        localStorage.setItem('ebookName', name);
+        welcomeScreen.style.display = 'none';
+      } else {
+        alert('Masukkan namanya dulu ya!');
+      }
+    }
+
+    function showFarewell() {
+      const name = localStorage.getItem('ebookName') || 'teman';
+      document.getElementById('farewellText').innerText = `Hi ${name}, makasih yaa sudah membaca dan semoga bermanfaat yaa :)`;
+      farewellScreen.style.display = 'flex';
+      setTimeout(() => farewellScreen.style.display = 'none', 7000);
+    }
+
+    // Partikel
+    const canvas = document.getElementById("particle-canvas");
+    const ctx = canvas.getContext("2d");
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.7;
+        this.vy = (Math.random() - 0.5) * 0.7;
+        this.size = Math.random() * 2 + 1;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+          this.reset();
+        }
+      }
+      draw() {
+        ctx.fillStyle = "rgba(255,255,255,0.5)";
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function initParticles(num) {
+      particles = [];
+      for (let i = 0; i < num; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+
+    initParticles(80);
+    animateParticles();
   </script>
 </body>
 </html>
