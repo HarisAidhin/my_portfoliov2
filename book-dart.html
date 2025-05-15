@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Belajar Dart - E-Book Vol.2</title>
+  <style>
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      background: linear-gradient(to right, #f7f9fc, #dce3f0);
+      color: #1e1e2f;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background-color: #0277bd;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+      animation: fadeInDown 0.8s ease-out;
+    }
+    @keyframes fadeInDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    nav {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    nav a.active {
+      background: white;
+      color: #0277bd;
+      pointer-events: none;
+      font-weight: bold;
+    }
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      flex: 1;
+    }
+    section {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      animation: fadeIn 0.7s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1, h2 {
+      font-weight: bold;
+    }
+    h2 {
+      color: #0277bd;
+      margin-bottom: 1rem;
+    }
+    pre {
+      background: #f3f3f3;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-top: 1rem;
+      font-family: monospace;
+    }
+    .exercise {
+      background: #e1f5fe;
+      border-left: 5px solid #0277bd;
+      padding: 1rem;
+      border-radius: 6px;
+    }
+    footer {
+      text-align: center;
+      background: #0277bd;
+      color: white;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      main { padding: 1rem; }
+      nav { gap: 0.4rem; }
+      nav a { font-size: 0.9rem; padding: 0.4rem 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Belajar Dart dengan Mudah 🎯</h1>
+    <p>Bahasa yang dirancang Google untuk masa depan aplikasi multiplatform.</p>
+    <nav>
+      <a href="e-book2.html">Home</a>
+      <a href="book-php.html">PHP</a>
+      <a href="book-c++.html">C/C++</a>
+      <a href="book-java.html">Java</a>
+      <a href="book-go.html">Go</a>
+      <a href="book-rust.html">Rust</a>
+      <a href="book-kotlin.html">Kotlin</a>
+      <a href="book-python.html">Python</a>
+      <a href="book-ruby.html">Ruby</a>
+      <a href="book-swift.html">Swift</a>
+      <a href="book-typescript.html">TypeScript</a>
+      <a href="book-sql.html">SQL</a>
+      <a href="book-dart.html" class="active">Dart</a>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Sejarah Singkat Dart</h2>
+      <p>Dart diperkenalkan oleh Google pada tahun 2011 sebagai bahasa pemrograman modern untuk membangun aplikasi web dan mobile yang cepat. Dart menjadi sangat populer berkat framework Flutter, yang memungkinkan pengembangan UI native untuk Android, iOS, dan platform lainnya dengan satu codebase.</p>
+    </section>
+
+    <section>
+      <h2>Kenapa Belajar Dart?</h2>
+      <ul>
+        <li>Dukungan penuh oleh Google dan banyak digunakan dalam Flutter.</li>
+        <li>Bisa digunakan untuk web, server, mobile, bahkan desktop.</li>
+        <li>Memiliki sintaks modern yang mudah dipahami.</li>
+        <li>Performa cepat, cocok untuk aplikasi interaktif.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Contoh Kode Dart</h2>
+      <pre>
+void main() {
+  String nama = 'Bosdhxcl';
+  int umur = 21;
+
+  print('Halo $nama, umur kamu $umur tahun.');
+}
+      </pre>
+    </section>
+
+    <section>
+  <h2>Latihan Kecil - Pilihan Ganda Interaktif</h2>
+  <div class="exercise">
+    <form id="quizForm">
+      <ol>
+        <li>
+          <p>Apa fungsi utama dari <code>main()</code> dalam program Dart?</p>
+          <label><input type="radio" name="q1" value="a"> a. Menyimpan data pengguna</label><br>
+          <label><input type="radio" name="q1" value="b"> b. Menampilkan UI</label><br>
+          <label><input type="radio" name="q1" value="c"> c. Titik awal eksekusi program</label><br>
+          <label><input type="radio" name="q1" value="d"> d. Membuat class baru</label>
+        </li><br>
+        <li>
+          <p>Manakah dari berikut ini yang merupakan tipe data di Dart?</p>
+          <label><input type="radio" name="q2" value="a"> a. numberSet</label><br>
+          <label><input type="radio" name="q2" value="b"> b. int</label><br>
+          <label><input type="radio" name="q2" value="c"> c. numString</label><br>
+          <label><input type="radio" name="q2" value="d"> d. char</label>
+        </li><br>
+        <li>
+          <p>Bagaimana cara mencetak output di Dart?</p>
+          <label><input type="radio" name="q3" value="a"> a. echo()</label><br>
+          <label><input type="radio" name="q3" value="b"> b. printline()</label><br>
+          <label><input type="radio" name="q3" value="c"> c. print()</label><br>
+          <label><input type="radio" name="q3" value="d"> d. output()</label>
+        </li><br>
+        <li>
+          <p>Keyword apa yang digunakan untuk variabel yang tidak bisa diubah?</p>
+          <label><input type="radio" name="q4" value="a"> a. var</label><br>
+          <label><input type="radio" name="q4" value="b"> b. final</label><br>
+          <label><input type="radio" name="q4" value="c"> c. late</label><br>
+          <label><input type="radio" name="q4" value="d"> d. dynamic</label>
+        </li><br>
+        <li>
+          <p>Apa output dari kode berikut?</p>
+          <code>void main() { String nama = 'Dart'; print('Belajar $nama!'); }</code><br>
+          <label><input type="radio" name="q5" value="a"> a. Belajar!</label><br>
+          <label><input type="radio" name="q5" value="b"> b. Belajar Dart!</label><br>
+          <label><input type="radio" name="q5" value="c"> c. Dart Belajar!</label><br>
+          <label><input type="radio" name="q5" value="d"> d. Error</label>
+        </li>
+      </ol>
+      <br>
+      <button type="button" onclick="checkAnswers()">Cek Jawaban</button>
+      <p id="result" style="margin-top: 1rem; font-weight: bold;"></p>
+    </form>
+  </div>
+</section>
+
+
+    <section>
+      <h2>Tips Belajar Dart</h2>
+      <ul>
+        <li>Pelajari dasar: variabel, tipe data, function, class.</li>
+        <li>Gunakan DartPad (https://dartpad.dev) untuk mencoba kode secara online.</li>
+        <li>Gabungkan dengan Flutter untuk membangun UI mobile modern.</li>
+        <li>Biasakan menulis kode yang clean dan modular.</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Haris Aidhin Ramadhan
+  </footer>
+  <script>
+    console.log("dart.html loaded - belajar Dart jalan terus!");
+    function checkAnswers() {
+    const correct = {
+      q1: 'c',
+      q2: 'b',
+      q3: 'c',
+      q4: 'b',
+      q5: 'b'
+    };
+
+    let score = 0;
+    for (let key in correct) {
+      const answer = document.querySelector(`input[name="${key}"]:checked`);
+      if (answer && answer.value === correct[key]) {
+        score++;
+      }
+    }
+
+    const result = document.getElementById('result');
+    result.textContent = `Skor kamu: ${score} dari 5 soal`;
+    result.style.color = score === 5 ? 'green' : (score >= 3 ? 'orange' : 'red');
+  }
+  </script>
+</body>
+</html>

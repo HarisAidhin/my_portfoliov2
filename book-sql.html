@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Belajar SQL - E-Book Vol.2</title>
+  <style>
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+      color: #1c1c1e;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background-color: #3e4c6d;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+      animation: fadeInDown 0.8s ease-out;
+    }
+    @keyframes fadeInDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    nav {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    nav a.active {
+      background: white;
+      color: #3e4c6d;
+      pointer-events: none;
+      font-weight: bold;
+    }
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      flex: 1;
+    }
+    section {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      animation: fadeIn 0.7s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1, h2 {
+      font-weight: bold;
+    }
+    h2 {
+      color: #3e4c6d;
+      margin-bottom: 1rem;
+    }
+    pre {
+      background: #f3f3f3;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-top: 1rem;
+      font-family: monospace;
+    }
+    .exercise {
+      background: #eef2ff;
+      border-left: 5px solid #3e4c6d;
+      padding: 1rem;
+      border-radius: 6px;
+    }
+    footer {
+      text-align: center;
+      background: #3e4c6d;
+      color: white;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      main { padding: 1rem; }
+      nav { gap: 0.4rem; }
+      nav a { font-size: 0.9rem; padding: 0.4rem 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Belajar SQL dengan Mudah 🧠</h1>
+    <p>Bahasa untuk mengelola dan mengakses database relasional.</p>
+    <nav>
+      <a href="e-book2.html">Home</a>
+      <a href="book-php.html">PHP</a>
+      <a href="book-c++.html">C/C++</a>
+      <a href="book-java.html">Java</a>
+      <a href="book-go.html">Go</a>
+      <a href="book-rust.html">Rust</a>
+      <a href="book-kotlin.html">Kotlin</a>
+      <a href="book-python.html">Python</a>
+      <a href="book-ruby.html">Ruby</a>
+      <a href="book-swift.html">Swift</a>
+      <a href="book-typescript.html">TypeScript</a>
+      <a href="book-sql.html"class="active">SQL</a>
+      <a href="book-dart.html">Dart</a>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Sejarah Singkat SQL</h2>
+      <p>SQL (Structured Query Language) dikembangkan oleh Donald D. Chamberlin dan Raymond F. Boyce pada awal 1970-an di IBM. SQL dirancang untuk mengelola data dalam sistem manajemen basis data relasional. Bahasa ini telah menjadi standar industri sejak diperkenalkan oleh ANSI pada tahun 1986.</p>
+    </section>
+
+    <section>
+      <h2>Kenapa Belajar SQL?</h2>
+      <ul>
+        <li>SQL digunakan oleh hampir semua sistem database modern seperti MySQL, PostgreSQL, SQL Server, dan Oracle.</li>
+        <li>SQL adalah dasar dari pekerjaan data analyst, backend developer, hingga sysadmin.</li>
+        <li>Bahasa yang powerful namun mudah dipelajari untuk pemula.</li>
+        <li>Memungkinkan kita mengelola dan mengambil data secara efisien.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Contoh Kode SQL</h2>
+      <pre>
+-- Membuat tabel pengguna
+CREATE TABLE users (
+  id INT PRIMARY KEY,
+  nama VARCHAR(100),
+  email VARCHAR(100)
+);
+
+-- Menambahkan data
+INSERT INTO users (id, nama, email)
+VALUES (1, 'Rama', 'rama@email.com');
+
+-- Mengambil semua data
+SELECT * FROM users;
+      </pre>
+    </section>
+
+   <section>
+  <h2>Latihan Kecil</h2>
+  <form id="quizForm" class="exercise">
+    <div>
+      <p><strong>1. Query untuk menampilkan semua data dari tabel <code>produk</code>:</strong></p>
+      <label><input type="radio" name="q1" value="A"> A. GET * FROM produk;</label><br>
+      <label><input type="radio" name="q1" value="B"> B. DISPLAY * FROM produk;</label><br>
+      <label><input type="radio" name="q1" value="C"> C. SELECT * FROM produk;</label><br>
+      <label><input type="radio" name="q1" value="D"> D. SHOW ALL produk;</label>
+    </div><br>
+
+    <div>
+      <p><strong>2. Perintah SQL untuk menambahkan data baru ke dalam tabel <code>users</code>:</strong></p>
+      <label><input type="radio" name="q2" value="A"> A. INSERT INTO users VALUES (...);</label><br>
+      <label><input type="radio" name="q2" value="B"> B. ADD NEW users (...);</label><br>
+      <label><input type="radio" name="q2" value="C"> C. PUT INTO users (...);</label><br>
+      <label><input type="radio" name="q2" value="D"> D. APPEND users (...);</label>
+    </div><br>
+
+    <div>
+      <p><strong>3. Apa fungsi dari perintah <code>WHERE</code> dalam SQL?</strong></p>
+      <label><input type="radio" name="q3" value="A"> A. Menampilkan struktur tabel</label><br>
+      <label><input type="radio" name="q3" value="B"> B. Memberi nama alias pada kolom</label><br>
+      <label><input type="radio" name="q3" value="C"> C. Menyaring data sesuai kondisi tertentu</label><br>
+      <label><input type="radio" name="q3" value="D"> D. Mengurutkan data berdasarkan kolom</label>
+    </div><br>
+
+    <div>
+      <p><strong>4. Query yang benar untuk menampilkan nama dari pengguna dengan email "gmail.com":</strong></p>
+      <label><input type="radio" name="q4" value="A"> A. SELECT email FROM users WHERE email = 'gmail.com';</label><br>
+      <label><input type="radio" name="q4" value="B"> B. SELECT * FROM users WHERE email CONTAINS 'gmail.com';</label><br>
+      <label><input type="radio" name="q4" value="C"> C. SELECT nama FROM users WHERE email LIKE '%gmail.com';</label><br>
+      <label><input type="radio" name="q4" value="D"> D. SHOW nama FROM users WHERE email = gmail.com;</label>
+    </div><br>
+
+    <div>
+      <p><strong>5. SQL digunakan terutama untuk...</strong></p>
+      <label><input type="radio" name="q5" value="A"> A. Membuat desain UI</label><br>
+      <label><input type="radio" name="q5" value="B"> B. Mengelola dan memanipulasi data di database</label><br>
+      <label><input type="radio" name="q5" value="C"> C. Membuat API</label><br>
+      <label><input type="radio" name="q5" value="D"> D. Mengembangkan game</label>
+    </div><br>
+
+    <button type="button" onclick="checkAnswers()">Cek Jawaban</button>
+    <p id="scoreResult" style="margin-top: 1rem; font-weight: bold;"></p>
+  </form>
+</section>
+
+
+    <section>
+      <h2>Tips Belajar SQL</h2>
+      <ul>
+        <li>Gunakan database seperti SQLite atau MySQL untuk praktik langsung.</li>
+        <li>Pahami perintah dasar: SELECT, INSERT, UPDATE, DELETE, JOIN.</li>
+        <li>Cobalah query latihan di situs seperti SQLZoo, LeetCode, atau Mode SQL.</li>
+        <li>Biasakan menggunakan alias dan filter WHERE untuk efisiensi data.</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Haris Aidhin Ramadhan
+  </footer>
+  <script>
+    console.log("sql.html loaded - belajar SQL yuk!");
+    function checkAnswers() {
+    const correctAnswers = {
+      q1: "C",
+      q2: "A",
+      q3: "C",
+      q4: "C",
+      q5: "B"
+    };
+
+    let score = 0;
+    for (let q in correctAnswers) {
+      const selected = document.querySelector(`input[name="${q}"]:checked`);
+      if (selected && selected.value === correctAnswers[q]) {
+        score++;
+      }
+    }
+
+    const result = document.getElementById("scoreResult");
+    result.textContent = `Skor Anda: ${score} dari 5`;
+    result.style.color = score === 5 ? "green" : "darkorange";
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Belajar Ruby - E-Book Vol.2</title>
+<style>
+  * {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+  }
+  body {
+    background: linear-gradient(to right, #f0f4f8, #d9e2ec);
+    color: #2c3e50;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    background-color: #cc342d;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+    animation: slideDown 0.8s ease forwards;
+  }
+  @keyframes slideDown {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  nav {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  nav a:hover {
+    background-color: rgba(255,255,255,0.3);
+  }
+  nav a.active {
+    background-color: white;
+    color: #cc342d;
+    pointer-events: none;
+    font-weight: 700;
+  }
+  main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(204, 52, 45, 0.15);
+    margin-bottom: 2rem;
+    animation: fadeIn 0.7s ease forwards;
+  }
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  h1, h2 {
+    font-weight: 700;
+  }
+  h2 {
+    margin-bottom: 1rem;
+    color: #cc342d;
+  }
+  pre {
+    background: #f7f7f7;
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    overflow-x: auto;
+    margin-top: 1rem;
+  }
+  .exercise {
+    background: #ffe6e6;
+    border-left: 6px solid #cc342d;
+    padding: 1rem;
+    border-radius: 6px;
+  }
+  footer {
+    text-align: center;
+    background-color: #cc342d;
+    color: white;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  button {
+    background-color: #cc342d;
+    border: none;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+  }
+  button:hover {
+    background-color: #a82b24;
+  }
+  .quiz-question {
+    margin-bottom: 1.5rem;
+  }
+  .quiz-question h3 {
+    margin-bottom: 0.5rem;
+    color: #cc342d;
+  }
+  .options label {
+    display: block;
+    margin-bottom: 0.4rem;
+    cursor: pointer;
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  .options input[type="radio"] {
+    margin-right: 0.6rem;
+    cursor: pointer;
+  }
+  .options label:hover {
+    background-color: #fce4e3;
+  }
+  .options input[type="radio"]:checked + label {
+    background-color: #cc342d;
+    color: white;
+    border-color: #cc342d;
+  }
+  .result {
+    background-color: #dff0d8;
+    border: 2px solid #3c763d;
+    padding: 1rem;
+    border-radius: 8px;
+    color: #3c763d;
+    font-weight: 700;
+    margin-top: 1.5rem;
+  }
+  .correct-answer {
+    color: #3c763d;
+    font-weight: 600;
+  }
+  .wrong-answer {
+    color: #a94442;
+    font-weight: 600;
+  }
+  @media (max-width: 768px) {
+    main {
+      padding: 1rem;
+    }
+    nav {
+      gap: 0.5rem;
+    }
+    nav a {
+      padding: 0.3rem 0.6rem;
+      font-size: 0.9rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Belajar Ruby dengan Asik 💎</h1>
+  <p style="margin-top: 0.5rem;">Bahasa pemrograman yang simple dan elegan buat kamu yang pengen cepat bisa!</p>
+  <nav>
+      <a href="e-book2.html">Home</a>
+      <a href="book-php.html">PHP</a>
+      <a href="book-c++.html">C/C++</a>
+      <a href="book-java.html">Java</a>
+      <a href="book-go.html">Go</a>
+      <a href="book-rust.html">Rust</a>
+      <a href="book-kotlin.html">Kotlin</a>
+      <a href="book-python.html">Python</a>
+      <a href="book-ruby.html" class="active">Ruby</a>
+      <a href="book-swift.html">Swift</a>
+      <a href="book-typescript.html">TypeScript</a>
+      <a href="book-sql.html">SQL</a>
+      <a href="book-dart.html">Dart</a>
+  </nav>
+</header>
+<main>
+  <section>
+    <h2>Sejarah Singkat Ruby</h2>
+    <p>Ruby dibuat oleh Yukihiro “Matz” Matsumoto di Jepang pada tahun 1995. Tujuan Matz adalah membuat bahasa pemrograman yang menyenangkan dan mudah dipakai, dengan sintaks yang bersahabat seperti bahasa manusia. Ruby jadi terkenal karena kemudahan dan fleksibilitasnya, serta karena framework <strong>Ruby on Rails</strong> yang membantu bikin aplikasi web dengan cepat.</p>
+  </section>
+  <section>
+    <h2>Kenapa Belajar Ruby?</h2>
+    <ul>
+      <li>Sintaks yang mudah dibaca dan ditulis.</li>
+      <li>Support paradigma pemrograman berorientasi objek dan fungsional.</li>
+      <li>Banyak library dan framework, terutama untuk web.</li>
+      <li>Cocok untuk pemula dan juga programmer berpengalaman.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Contoh Kode Ruby Dasar</h2>
+    <pre>
+# Halo dunia di Ruby
+puts "Halo, dunia!"
+
+print "Masukkan nama kamu: "
+name = gets.chomp
+puts "Senang kenal, #{name}!"
+    </pre>
+    <p><em>Latihan interaktif kode di halaman lain ya.</em></p>
+  </section>
+  <section>
+    <h2>Latihan Seru Pilihan Ganda</h2>
+    <form id="quiz-form">
+      <div class="quiz-question">
+        <h3>1. Apa output dari kode Ruby berikut?<br><code>puts 2 + 3 * 4</code></h3>
+        <div class="options">
+          <input type="radio" id="q1a" name="q1" value="a" />
+          <label for="q1a">a. 20</label>
+          <input type="radio" id="q1b" name="q1" value="b" />
+          <label for="q1b">b. 14</label>
+          <input type="radio" id="q1c" name="q1" value="c" />
+          <label for="q1c">c. 24</label>
+          <input type="radio" id="q1d" name="q1" value="d" />
+          <label for="q1d">d. 10</label>
+        </div>
+      </div>
+      <div class="quiz-question">
+        <h3>2. Apa fungsi dari method <code>chomp</code> di Ruby?</h3>
+        <div class="options">
+          <input type="radio" id="q2a" name="q2" value="a" />
+          <label for="q2a">a. Menghapus spasi di awal string</label>
+          <input type="radio" id="q2b" name="q2" value="b" />
+          <label for="q2b">b. Menghapus karakter newline dari akhir string</label>
+          <input type="radio" id="q2c" name="q2" value="c" />
+          <label for="q2c">c. Mengubah string menjadi huruf kapital</label>
+          <input type="radio" id="q2d" name="q2" value="d" />
+          <label for="q2d">d. Memotong string menjadi array</label>
+        </div>
+      </div>
+      <div class="quiz-question">
+        <h3>3. Bagaimana cara mendefinisikan method di Ruby?</h3>
+        <div class="options">
+          <input type="radio" id="q3a" name="q3" value="a" />
+          <label for="q3a">a. function nama_method { ... }</label>
+          <input type="radio" id="q3b" name="q3" value="b" />
+          <label for="q3b">b. def nama_method ... end</label>
+          <input type="radio" id="q3c" name="q3" value="c" />
+          <label for="q3c">c. method nama_method do ... end</label>
+          <input type="radio" id="q3d" name="q3" value="d" />
+          <label for="q3d">d. def method nama_method { ... }</label>
+        </div>
+      </div>
+      <div class="quiz-question">
+        <h3>4. Apa hasil dari ekspresi berikut?<br><code>5.times { |i| puts i }</code></h3>
+        <div class="options">
+          <input type="radio" id="q4a" name="q4" value="a" />
+          <label for="q4a">a. Mencetak angka 0 sampai 4</label>
+          <input type="radio" id="q4b" name="q4" value="b" />
+          <label for="q4b">b. Mencetak angka 1 sampai 5</label>
+          <input type="radio" id="q4c" name="q4" value="c" />
+          <label for="q4c">c. Error</label>
+          <input type="radio" id="q4d" name="q4" value="d" />
+          <label for="q4d">d. Mencetak angka 5 kali tanpa indeks</label>
+        </div>
+      </div>
+      <div class="quiz-question">
+        <h3>5. Bagaimana cara membuat array di Ruby?</h3>
+        <div class="options">
+          <input type="radio" id="q5a" name="q5" value="a" />
+          <label for="q5a">a. array = (1,2,3)</label>
+          <input type="radio" id="q5b" name="q5" value="b" />
+          <label for="q5b">b. array = [1, 2, 3]</label>
+          <input type="radio" id="q5c" name="q5" value="c" />
+          <label for="q5c">c. array = {1,2,3}</label>
+          <input type="radio" id="q5d" name="q5" value="d" />
+          <label for="q5d">d. array = &lt;1, 2, 3&gt;</label>
+        </div>
+      </div>
+      <button type="submit">Submit Jawaban</button>
+    </form>
+    <div id="quiz-result" class="result" style="display:none;"></div>
+  </section>
+</main>
+<footer>
+  &copy; 2025 Belajar Ruby - Semua hak cipta dilindungi.
+</footer>
+<script>
+  const quizForm = document.getElementById('quiz-form');
+  const quizResult = document.getElementById('quiz-result');
+
+  // Jawaban benar untuk quiz
+  const answers = {
+    q1: 'b', // 2 + 3*4 = 2 + 12 = 14
+    q2: 'b', // chomp hapus newline akhir string
+    q3: 'b', // def nama_method ... end
+    q4: 'a', // 5.times { |i| puts i } mencetak 0 sampai 4
+    q5: 'b', // array = [1, 2, 3]
+  };
+
+  quizForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    let score = 0;
+    for (const [key, correctAnswer] of Object.entries(answers)) {
+      const selected = quizForm.elements[key].value;
+      if (selected === correctAnswer) score++;
+    }
+    quizResult.style.display = 'block';
+    quizResult.textContent = `Skor kamu: ${score} dari ${Object.keys(answers).length}. ` +
+      (score === Object.keys(answers).length
+        ? 'Hebat! Semua jawaban benar 🎉'
+        : 'Ayo coba lagi untuk hasil yang sempurna!');
+  });
+</script>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Belajar PHP - E-Book Vol.2</title>
+  <style>
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
+    body {
+      background: linear-gradient(to right, #fdfbfb, #ebedee);
+      color: #2c3e50;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    nav {
+      background: #34495e;
+      padding: 0.8rem 2rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #f39c12;
+    }
+    nav a.active {
+      color: #f39c12;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      animation: slideIn 1s ease;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    main {
+      padding: 2rem;
+      flex: 1;
+    }
+    section {
+      margin-bottom: 2.5rem;
+      background-color: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      animation: fadeIn 0.6s ease-in;
+    }
+    section h2 {
+      margin-bottom: 1rem;
+      color: #34495e;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+    }
+    .exercise {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-left: 4px solid #2980b9;
+      background-color: #ecf0f1;
+      border-radius: 5px;
+    }
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+    footer {
+      text-align: center;
+      background-color: #2c3e50;
+      color: white;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      main {
+        padding: 1rem;
+      }
+      section {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+      <a href="e-book2.html">Home</a>
+      <a href="book-php.html"class="active">PHP</a>
+      <a href="book-c++.html">C/C++</a>
+      <a href="book-java.html">Java</a>
+      <a href="book-go.html">Go</a>
+      <a href="book-rust.html">Rust</a>
+      <a href="book-kotlin.html">Kotlin</a>
+      <a href="book-python.html">Python</a>
+      <a href="book-ruby.html">Ruby</a>
+      <a href="book-swift.html">Swift</a>
+      <a href="book-typescript.html">TypeScript</a>
+      <a href="book-sql.html">SQL</a>
+      <a href="book-dart.html">Dart</a>
+    </nav>
+
+  <header>
+    <h1>Belajar PHP dengan Gaya Santai 🐘</h1>
+    <p style="margin-top: 0.5rem;">Mulai petualangan server-side coding kamu!</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Sejarah Singkat PHP</h2>
+      <p>PHP dibuat pertama kali oleh Rasmus Lerdorf pada tahun 1994. Awalnya, PHP itu singkatan dari "Personal Home Page" karena dipakai buat bikin halaman pribadi.  
+      Tapi sekarang, PHP sudah jadi singkatan rekursif: "PHP: Hypertext Preprocessor". Gak cuma buat halaman statis, tapi juga website interaktif dan aplikasi web besar.</p>
+    </section>
+
+    <section>
+      <h2>Apa itu PHP?</h2>
+      <p>PHP adalah bahasa scripting yang jalan di server, sering banget dipakai buat bikin website dinamis.  
+      Jadi, PHP itu yang bikin website bisa interaktif dan bukan cuma tampilan statis doang.</p>
+    </section>
+
+    <section>
+      <h2>Contoh Kode Dasar PHP</h2>
+      <pre>
+&lt;?php
+  // Ini contoh script PHP yang nampilkan teks
+  echo "Halo, dunia PHP!";
+?&gt;
+      </pre>
+      <p>Coba lihat langsung hasilnya di editor interaktif di bawah ini!</p>
+      <iframe src="https://paiza.io/projects/e/gHO_wPHztowD9tPAMZ4hBQ?theme=twilight" width="100%" height="500" scrolling="no" seamless="seamless"></iframe>
+    </section>
+
+    <section>
+      <h2>Latihan Seru!</h2>
+      <div class="exercise">
+        <strong>Soal:</strong>  
+        Buat script PHP yang menyapa user dengan nama mereka, contoh output:<br>
+        <code>Halo, nama saya x!</code><br><br>
+        Gunakan <code>echo</code> dan variabel sederhana.<br>
+        Cobain di editor di atas ya!
+      </div>
+    </section>
+
+    <section>
+      <h2>Tips Belajar PHP 🎯</h2>
+      <ul>
+        <li>Ingat, PHP itu berjalan di server, jadi output-nya bisa kamu lihat di browser setelah di-*render*.</li>
+        <li>Mulai dari kode simpel dulu, jangan langsung kompleks.</li>
+        <li>Pahami cara kerja variabel dan echo buat nampilin data.</li>
+        <li>Jangan takut coba-coba, coding itu belajar dari kesalahan.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Haris Aidhin Ramadhan
+  </footer>
+</body>
+</html>

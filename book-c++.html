@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Belajar C++ - E-Book Vol.2</title>
+  <style>
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
+    body {
+      background: linear-gradient(to right, #f0f4f8, #d9e2ec);
+      color: #1b263b;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    nav {
+      background: #1b263b;
+      padding: 0.8rem 2rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #f39c12;
+    }
+    nav a.active {
+      color: #f39c12;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+    header {
+      background-color: #0d1b2a;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      animation: slideIn 1s ease;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    main {
+      padding: 2rem;
+      flex: 1;
+    }
+    section {
+      margin-bottom: 2.5rem;
+      background-color: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      animation: fadeIn 0.6s ease-in;
+    }
+    section h2 {
+      margin-bottom: 1rem;
+      color: #1b263b;
+    }
+    pre {
+      background-color: #e1e5ea;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+    }
+    .exercise {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-left: 4px solid #2a9d8f;
+      background-color: #f0f6f6;
+      border-radius: 5px;
+    }
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+    footer {
+      text-align: center;
+      background-color: #0d1b2a;
+      color: white;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      main {
+        padding: 1rem;
+      }
+      section {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+ <nav>
+      <a href="e-book2.html">Home</a>
+      <a href="book-php.html">PHP</a>
+      <a href="book-c++.html"class="active">C/C++</a>
+      <a href="book-java.html">Java</a>
+      <a href="book-go.html">Go</a>
+      <a href="book-rust.html">Rust</a>
+      <a href="book-kotlin.html">Kotlin</a>
+      <a href="book-python.html">Python</a>
+      <a href="book-ruby.html">Ruby</a>
+      <a href="book-swift.html">Swift</a>
+      <a href="book-typescript.html">TypeScript</a>
+      <a href="book-sql.html">SQL</a>
+      <a href="book-dart.html">Dart</a>
+    </nav>
+
+  <header>
+    <h1>Belajar C++ dengan Asik 🚀</h1>
+    <p style="margin-top: 0.5rem;">Bahasa powerful buat programmer sejati!</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Sejarah Singkat C++</h2>
+      <p>C++ dibuat oleh Bjarne Stroustrup pada awal 1980-an sebagai pengembangan dari bahasa C.  
+      Tujuannya, bikin bahasa yang powerful, mendukung pemrograman berorientasi objek, tapi tetap cepat dan fleksibel.  
+      Sampai sekarang, C++ masih jadi andalan buat aplikasi performa tinggi, game, sistem operasi, dan lain-lain.</p>
+    </section>
+
+    <section>
+      <h2>Apa itu C++?</h2>
+      <p>C++ adalah bahasa pemrograman tingkat menengah yang mendukung pemrograman prosedural, berorientasi objek, dan generik.  
+      Bahasa ini banyak dipakai untuk membuat software, game, driver perangkat keras, dan aplikasi yang butuh performa tinggi.</p>
+    </section>
+
+    <section>
+      <h2>Contoh Kode Dasar C++</h2>
+      <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    cout &lt;&lt; "Halo, dunia C++!" &lt;&lt; endl;
+    string name;
+    cout &lt;&lt; "Siapa nama kamu? ";
+    cin &gt;&gt; name;
+    cout &lt;&lt; "Senang kenal denganmu, " &lt;&lt; name &lt;&lt; "!" &lt;&lt; endl;
+    return 0;
+}
+      </pre>
+      <p>Kamu bisa coba kode ini langsung di editor online di bawah ini!</p>
+      <iframe src="https://paiza.io/projects/e/zaVl3-lPyiy-syhSAlpajw?theme=twilight" width="100%" height="500" scrolling="no" seamless="seamless"></iframe>
+    </section>
+
+    <section>
+      <h2>Latihan Seru!</h2>
+      <div class="exercise">
+        <strong>Soal:</strong>  
+        Buat program C++ yang menanyakan umur kamu, lalu tampilkan:<br>
+        <code>Umur saya adalah 20 tahun.</code><br><br>
+        Gunakan <code>cout</code> dan variabel sederhana.<br>
+        Cobain langsung di editor ya!
+      </div>
+    </section>
+
+    <section>
+      <h2>Tips Belajar C++ 🎯</h2>
+      <ul>
+        <li>Pahami dasar input/output dengan <code>cin</code> dan <code>cout</code>.</li>
+        <li>Latihan bikin program sederhana dulu.</li>
+        <li>Jangan takut error, baca pesan errornya dan coba perbaiki.</li>
+        <li>Pakai online compiler supaya gak ribet install.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Haris Aidhin Ramadhan
+  </footer>
+</body>
+</html>

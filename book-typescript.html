@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Belajar TypeScript - E-Book Vol.2</title>
+  <style>
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      background: linear-gradient(to right, #eef9ff, #d9f0ff);
+      color: #1c1c1e;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background-color: #3178c6;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+      animation: fadeInDown 0.8s ease-out;
+    }
+    @keyframes fadeInDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    nav {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    nav a.active {
+      background: white;
+      color: #3178c6;
+      pointer-events: none;
+      font-weight: bold;
+    }
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      flex: 1;
+    }
+    section {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      animation: fadeIn 0.7s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1, h2 {
+      font-weight: bold;
+    }
+    h2 {
+      color: #3178c6;
+      margin-bottom: 1rem;
+    }
+    pre {
+      background: #f3f3f3;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-top: 1rem;
+      font-family: monospace;
+    }
+    .exercise {
+      background: #eaf6ff;
+      border-left: 5px solid #3178c6;
+      padding: 1rem;
+      border-radius: 6px;
+    }
+    footer {
+      text-align: center;
+      background: #3178c6;
+      color: white;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      main { padding: 1rem; }
+      nav { gap: 0.4rem; }
+      nav a { font-size: 0.9rem; padding: 0.4rem 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Belajar TypeScript dengan Mudah ⚙️</h1>
+    <p>Bahasa super-set JavaScript yang kuat dan aman dengan tipe data.</p>
+    <nav>
+      <a href="e-book2.html">Home</a>
+      <a href="book-php.html">PHP</a>
+      <a href="book-c++.html">C/C++</a>
+      <a href="book-java.html">Java</a>
+      <a href="book-go.html">Go</a>
+      <a href="book-rust.html">Rust</a>
+      <a href="book-kotlin.html">Kotlin</a>
+      <a href="book-python.html">Python</a>
+      <a href="book-ruby.html">Ruby</a>
+      <a href="book-swift.html">Swift</a>
+      <a href="book-typescript.html"class="active">TypeScript</a>
+      <a href="book-sql.html">SQL</a>
+      <a href="book-dart.html">Dart</a>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Sejarah Singkat TypeScript</h2>
+      <p>TypeScript dikembangkan oleh Microsoft dan pertama kali dirilis pada tahun 2012. Bahasa ini merupakan superset dari JavaScript, yang berarti seluruh sintaks JavaScript valid juga di TypeScript. Tujuan utama TypeScript adalah memberikan sistem tipe statis yang kuat agar kode JavaScript lebih aman dan scalable.</p>
+    </section>
+
+    <section>
+      <h2>Kenapa Belajar TypeScript?</h2>
+      <ul>
+        <li>Membantu menangkap bug lebih awal lewat sistem tipe statis.</li>
+        <li>Sangat cocok untuk proyek besar & kolaboratif.</li>
+        <li>Didukung oleh semua framework modern seperti Angular, React, Vue.</li>
+        <li>Dipakai oleh perusahaan besar seperti Microsoft, Google, Airbnb, dll.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Contoh Kode TypeScript</h2>
+      <pre>
+// Mendefinisikan tipe data
+let nama: string = "Haris";
+let umur: number = 20;
+
+function sapa(pesan: string): void {
+  console.log("Halo, " + pesan);
+}
+
+sapa(nama);
+      </pre>
+    </section>
+
+   <section>
+  <h2>Latihan Kecil - Pilihan Ganda</h2>
+  <form class="exercise" id="quizForm">
+    <p><strong>1. Apa itu TypeScript?</strong></p>
+    <label><input type="radio" name="q1" value="c" /> Superset dari JavaScript dengan sistem tipe</label><br>
+    <label><input type="radio" name="q1" value="a" /> Bahasa markup untuk web</label><br>
+    <label><input type="radio" name="q1" value="b" /> Framework JavaScript</label><br>
+    <label><input type="radio" name="q1" value="d" /> Bahasa pemrograman untuk Android</label><br><br>
+
+    <p><strong>2. Fungsi utama dari TypeScript adalah?</strong></p>
+    <label><input type="radio" name="q2" value="c" /> Memberikan sistem tipe statis pada JavaScript</label><br>
+    <label><input type="radio" name="q2" value="a" /> Membuat website lebih interaktif</label><br>
+    <label><input type="radio" name="q2" value="b" /> Menambahkan animasi</label><br>
+    <label><input type="radio" name="q2" value="d" /> Mengakses database secara langsung</label><br><br>
+
+    <p><strong>3. Tipe data <code>string</code> di TypeScript digunakan untuk?</strong></p>
+    <label><input type="radio" name="q3" value="c" /> Menyimpan teks</label><br>
+    <label><input type="radio" name="q3" value="a" /> Menyimpan angka</label><br>
+    <label><input type="radio" name="q3" value="b" /> Menyimpan nilai benar atau salah</label><br>
+    <label><input type="radio" name="q3" value="d" /> Menyimpan objek DOM</label><br><br>
+
+    <p><strong>4. Contoh deklarasi variabel dengan tipe number:</strong></p>
+    <label><input type="radio" name="q4" value="b" /> <code>let umur: number = 25;</code></label><br>
+    <label><input type="radio" name="q4" value="a" /> <code>let umur = "25";</code></label><br>
+    <label><input type="radio" name="q4" value="c" /> <code>let umur: string = true;</code></label><br>
+    <label><input type="radio" name="q4" value="d" /> <code>let umur = true;</code></label><br><br>
+
+    <p><strong>5. Perusahaan manakah yang mengembangkan TypeScript?</strong></p>
+    <label><input type="radio" name="q5" value="c" /> Microsoft</label><br>
+    <label><input type="radio" name="q5" value="a" /> Google</label><br>
+    <label><input type="radio" name="q5" value="b" /> Facebook</label><br>
+    <label><input type="radio" name="q5" value="d" /> Amazon</label><br><br>
+
+    <button type="button" onclick="periksaJawaban()">Periksa Jawaban</button>
+    <p id="hasilSkor" style="margin-top:1rem; font-weight:bold;"></p>
+  </form>
+</section>
+
+
+
+    <section>
+      <h2>Tips Belajar TypeScript</h2>
+      <ul>
+        <li>Mulai dari mengonversi proyek JavaScript ke TypeScript secara bertahap.</li>
+        <li>Baca dokumentasi resmi di <a href="https://www.typescriptlang.org/docs/" target="_blank" rel="noopener noreferrer" style="color:#3178c6; font-weight:bold;">typescriptlang.org</a></li>
+        <li>Pahami konsep interface, type alias, enum, dan generic.</li>
+        <li>Gunakan editor seperti VS Code dengan plugin TypeScript aktif.</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Haris Aidhin Ramadhan
+  </footer>
+  <script>
+    console.log("typescript.html loaded - belajar TypeScript bareng yuk!");
+     function periksaJawaban() {
+    const jawabanBenar = {
+      q1: "c",
+      q2: "c",
+      q3: "c",
+      q4: "b",
+      q5: "c"
+    };
+
+    let skor = 0;
+    let total = Object.keys(jawabanBenar).length;
+
+    for (let kunci in jawabanBenar) {
+      const elemen = document.querySelector(`input[name="${kunci}"]:checked`);
+      if (elemen && elemen.value === jawabanBenar[kunci]) {
+        skor++;
+      }
+    }
+
+    const hasil = document.getElementById("hasilSkor");
+    hasil.textContent = `Skor kamu: ${skor} dari ${total} benar.`;
+    hasil.style.color = skor === total ? "green" : "#d35400";
+  }
+  </script>
+</body>
+</html>
