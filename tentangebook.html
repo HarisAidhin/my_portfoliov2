@@ -10,12 +10,16 @@
       --text: #333;
       --bg: #fff;
       --secondary-bg: #f9f9f9;
+      --nav-bg: #fff;
+      --nav-text: #e74c3c;
     }
 
     body.dark-mode {
       --bg: #1e1e1e;
       --text: #f1f1f1;
       --secondary-bg: #2b2b2b;
+      --nav-bg: #2b2b2b;
+      --nav-text: #ff6f61;
     }
 
     body {
@@ -34,28 +38,68 @@
       text-align: center;
       border-bottom: 2px solid var(--primary);
     }
-    
-    .back{
-        background: rgb(197, 206, 213);
-        width: 100px;
-        height: 30px;
-        float: right;
+
+    nav {
+      background-color: var(--nav-bg);
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      border-bottom: 2px solid var(--primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    .back a{
-        color: #1e1e1e;
-        list-style: none;
-        text-decoration: underline;
-        text-align: center;
-        margin: 26px;
+
+    nav a {
+      color: var(--nav-text);
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+      font-size: 1.1em;
+      padding: 6px 12px;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
     }
-    .back a:hover,:focus {
-    color: #ffffff;
-    background: #008cff;
-    border: 1px solid #008cff;
-    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
-    box-shadow: 0 0 5px #008cff, 0 0 20px #008cff, 0 0 50px #008cff,
-      0 0 100px #008cff;
-}
+
+    nav a:hover,
+    nav a:focus {
+      background-color: var(--primary);
+      color: #fff;
+      box-shadow: 0 0 10px var(--primary);
+    }
+
+    .back {
+      background: rgb(197, 206, 213);
+      width: 100px;
+      height: 30px;
+      float: right;
+      margin: 20px 20px 0 0;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9em;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: background-color 0.3s;
+    }
+
+    .back a {
+      color: #1e1e1e;
+      text-decoration: underline;
+      list-style: none;
+    }
+
+    .back a:hover,
+    .back a:focus {
+      color: #fff;
+      background: #008cff;
+      border: 1px solid #008cff;
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff;
+      box-shadow: 0 0 5px #008cff, 0 0 20px #008cff, 0 0 50px #008cff, 0 0 100px #008cff;
+      border-radius: 5px;
+      padding: 3px 6px;
+    }
+
     .animated-title {
       font-size: 2.2em;
       color: var(--primary);
@@ -69,7 +113,7 @@
 
     .content {
       max-width: 800px;
-      margin: 40px auto;
+      margin: 40px auto 80px auto;
       padding: 0 20px;
     }
 
@@ -79,6 +123,36 @@
 
     ul {
       padding-left: 20px;
+    }
+
+    /* Materi list */
+    .materi-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 30px;
+      margin-top: 20px;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .materi-list li {
+      background-color: var(--secondary-bg);
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 1px 1px 6px rgba(0,0,0,0.05);
+      flex: 1 1 120px;
+      max-width: 160px;
+      text-align: center;
+      font-weight: 600;
+      color: var(--primary);
+      cursor: default;
+      transition: background-color 0.3s;
+    }
+
+    .materi-list li:hover {
+      background-color: var(--primary);
+      color: #fff;
+      box-shadow: 0 0 10px var(--primary);
     }
 
     footer {
@@ -109,6 +183,30 @@
     .toggle-darkmode:hover {
       background: #c0392b;
     }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      nav a {
+        margin: 0 8px;
+        font-size: 1em;
+        padding: 6px 8px;
+      }
+
+      .materi-list {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .materi-list li {
+        max-width: 100%;
+      }
+
+      .back {
+        width: 80px;
+        height: 28px;
+        margin: 15px 15px 0 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -117,6 +215,10 @@
   <header>
     <h1 class="animated-title">Tentang E-Book Ini</h1>
   </header>
+
+  <nav>
+    <a href="e-book.html">Home</a>
+  </nav>
 
   <div class="content">
     <h2>Halo 👋</h2>
@@ -127,6 +229,22 @@
       <li>Memberikan materi dasar tentang HTML, CSS, dan JavaScript secara bertahap.</li>
       <li>Membantu kamu belajar coding dengan tampilan yang enak dilihat dan fitur yang berguna.</li>
       <li>Menyediakan fitur seperti mode gelap, bookmark otomatis, dan navigasi yang mudah.</li>
+    </ul>
+
+    <h3>Materi Bahasa Pemrograman</h3>
+    <ul class="materi-list">
+      <li>PHP</li>
+      <li>C++</li>
+      <li>Java</li>
+      <li>Go</li>
+      <li>Rust</li>
+      <li>Kotlin</li>
+      <li>Python</li>
+      <li>Ruby</li>
+      <li>Swift</li>
+      <li>Typescript</li>
+      <li>SQL</li>
+      <li>Dart</li>
     </ul>
 
     <h3>Kenapa dibuat?</h3>
@@ -144,9 +262,11 @@
   <footer>
     <p>&copy; 2025 Belajar Bareng Bersama Haris 😄</p>
   </footer>
- <div class="back">
+
+  <div class="back">
     <a href="e-book.html">Home</a>
   </div>
+
   <script>
     const toggleBtn = document.getElementById('toggle-mode');
     toggleBtn.addEventListener('click', () => {
@@ -154,7 +274,7 @@
       localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
     });
 
-    // Load mode preferensi
+    // Load preferensi mode gelap
     if (localStorage.getItem('darkMode') === 'true') {
       document.body.classList.add('dark-mode');
     }
