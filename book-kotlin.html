@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Belajar Kotlin - E-Book Vol.2</title>
   <style>
     * {
-      margin: 0; padding: 0;
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
       font-family: 'Segoe UI', Tahoma, sans-serif;
     }
+
     body {
       background: linear-gradient(to right, #f0f4f8, #d4e1f5);
       color: #222831;
@@ -18,6 +21,7 @@
       min-height: 100vh;
       line-height: 1.6;
     }
+
     nav {
       background: #393e46;
       padding: 1rem 2rem;
@@ -25,20 +29,24 @@
       gap: 1.5rem;
       flex-wrap: wrap;
     }
+
     nav a {
       color: white;
       text-decoration: none;
       font-weight: 600;
       transition: color 0.3s ease;
     }
+
     nav a:hover {
       color: #00adb5;
     }
+
     nav a.active {
       color: #00adb5;
       text-decoration: underline;
       font-weight: 700;
     }
+
     header {
       background-color: #222831;
       color: white;
@@ -46,10 +54,19 @@
       text-align: center;
       animation: slideDown 1s ease;
     }
+
     @keyframes slideDown {
-      from { transform: translateY(-30px); opacity: 0;}
-      to { transform: translateY(0); opacity: 1;}
+      from {
+        transform: translateY(-30px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
+
     main {
       flex: 1;
       padding: 2rem;
@@ -57,16 +74,24 @@
       margin: 2rem auto;
       background: white;
       border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
       animation: fadeIn 0.7s ease-in;
     }
+
     @keyframes fadeIn {
-      from { opacity: 0;}
-      to { opacity: 1;}
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
+
     section {
       margin-bottom: 2.5rem;
     }
+
     h2 {
       color: #00adb5;
       margin-bottom: 1rem;
@@ -74,6 +99,7 @@
       padding-bottom: 0.4rem;
       font-weight: 700;
     }
+
     pre {
       background-color: #f4f4f4;
       padding: 1rem;
@@ -82,6 +108,7 @@
       font-family: 'Courier New', monospace;
       font-size: 0.95rem;
     }
+
     .exercise {
       background-color: #e0f7fa;
       border-left: 6px solid #00adb5;
@@ -90,14 +117,17 @@
       font-weight: 600;
       box-shadow: inset 0 0 10px #00adb5;
     }
+
     form ol {
       list-style-position: inside;
       padding-left: 0;
       margin-bottom: 1rem;
     }
+
     form li {
       margin-bottom: 1.5rem;
     }
+
     label {
       display: block;
       padding: 0.4rem 0.7rem;
@@ -109,15 +139,18 @@
       font-weight: 500;
       color: #222831;
     }
+
     label:hover {
       background-color: #00adb5;
       color: white;
     }
+
     input[type="radio"] {
       margin-right: 0.6rem;
       accent-color: #00adb5;
       cursor: pointer;
     }
+
     button[type="submit"] {
       background-color: #00adb5;
       color: white;
@@ -127,14 +160,16 @@
       font-weight: 700;
       border-radius: 30px;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,173,181,0.4);
+      box-shadow: 0 4px 12px rgba(0, 173, 181, 0.4);
       transition: background-color 0.3s ease, transform 0.2s ease;
       margin-top: 0.8rem;
     }
+
     button[type="submit"]:hover {
       background-color: #028f99;
       transform: scale(1.05);
     }
+
     #feedback {
       margin-top: 1rem;
       font-weight: 700;
@@ -142,6 +177,7 @@
       min-height: 1.5em;
       transition: color 0.4s ease;
     }
+
     footer {
       background-color: #222831;
       color: white;
@@ -149,10 +185,12 @@
       padding: 1rem;
       font-size: 0.9rem;
     }
+
     ul {
       margin-left: 1.2rem;
       margin-bottom: 1rem;
     }
+
     iframe {
       margin-top: 1rem;
       width: 100%;
@@ -160,17 +198,21 @@
       border: none;
       border-radius: 10px;
     }
+
     @media (max-width: 768px) {
       main {
         padding: 1rem;
         margin: 1rem;
       }
+
       nav {
         justify-content: center;
       }
+
       label {
         font-size: 0.9rem;
       }
+
       button[type="submit"] {
         width: 100%;
         padding: 0.8rem 0;
@@ -178,6 +220,7 @@
     }
   </style>
 </head>
+
 <body>
   <nav>
     <a href="e-book2.html">Home</a>
@@ -203,7 +246,9 @@
   <main>
     <section>
       <h2>Sejarah Singkat Kotlin</h2>
-      <p>Kotlin dibuat oleh JetBrains dan diumumkan pada tahun 2011. Bahasa ini dirancang untuk interoperabilitas penuh dengan Java, sintaks yang lebih bersih, dan mendukung pemrograman fungsional serta berorientasi objek. Kotlin resmi jadi bahasa utama Android sejak 2017.</p>
+      <p>Kotlin dibuat oleh JetBrains dan diumumkan pada tahun 2011. Bahasa ini dirancang untuk interoperabilitas penuh
+        dengan Java, sintaks yang lebih bersih, dan mendukung pemrograman fungsional serta berorientasi objek. Kotlin
+        resmi jadi bahasa utama Android sejak 2017.</p>
     </section>
 
     <section>
@@ -214,7 +259,8 @@ fun main() {
     println("Halo, Dunia!")
 }
       </pre>
-      <p>Maaf guys kode Kotlin ini perlu dijalankan di aplikasi/situs resmi seperti Kotlin Playground untuk praktek langsung.</p>
+      <p>Maaf guys kode Kotlin ini perlu dijalankan di aplikasi/situs resmi seperti Kotlin Playground untuk praktek
+        langsung.</p>
     </section>
 
     <section>
@@ -238,56 +284,53 @@ fun main() {
             </li>
             <li>
               Kata kunci apa yang digunakan untuk membuat variabel yang nilainya tidak bisa diubah?<br>
-              <label
-              <li>
-  Kata kunci apa yang digunakan untuk membuat variabel yang nilainya tidak bisa diubah?<br>
-  <label><input type="radio" name="q3" value="a"> val</label>
-  <label><input type="radio" name="q3" value="b"> var</label>
-  <label><input type="radio" name="q3" value="c"> const</label>
-  <label><input type="radio" name="q3" value="d"> let</label>
-</li>
-<li>
-  Apa tipe data untuk nilai benar/salah di Kotlin?<br>
-  <label><input type="radio" name="q4" value="a"> Boolean</label>
-  <label><input type="radio" name="q4" value="b"> Bool</label>
-  <label><input type="radio" name="q4" value="c"> boolean</label>
-  <label><input type="radio" name="q4" value="d"> TrueFalse</label>
-</li>
-<li>
-  Bagaimana cara mendeklarasikan variabel yang bisa berubah nilainya di Kotlin?<br>
-  <label><input type="radio" name="q5" value="a"> var</label>
-  <label><input type="radio" name="q5" value="b"> val</label>
-  <label><input type="radio" name="q5" value="c"> let</label>
-  <label><input type="radio" name="q5" value="d"> const</label>
-</li>
-</ol>
-<button type="submit">Submit Jawaban</button>
-<div id="feedback"></div>
-</form>
-</div>
 
-<script>
-  const quizForm = document.getElementById('quizForm');
-  const feedback = document.getElementById('feedback');
+              <label><input type="radio" name="q3" value="a"> val</label>
+              <label><input type="radio" name="q3" value="b"> var</label>
+              <label><input type="radio" name="q3" value="c"> const</label>
+              <label><input type="radio" name="q3" value="d"> let</label>
+            </li>
+            <li>
+              Apa tipe data untuk nilai benar/salah di Kotlin?<br>
+              <label><input type="radio" name="q4" value="a"> Boolean</label>
+              <label><input type="radio" name="q4" value="b"> Bool</label>
+              <label><input type="radio" name="q4" value="c"> boolean</label>
+              <label><input type="radio" name="q4" value="d"> TrueFalse</label>
+            </li>
+            <li>
+              Bagaimana cara mendeklarasikan variabel yang bisa berubah nilainya di Kotlin?<br>
+              <label><input type="radio" name="q5" value="a"> var</label>
+              <label><input type="radio" name="q5" value="b"> val</label>
+              <label><input type="radio" name="q5" value="c"> let</label>
+              <label><input type="radio" name="q5" value="d"> const</label>
+            </li>
+          </ol>
+          <button type="submit">Submit Jawaban</button>
+          <div id="feedback"></div>
+        </form>
+      </div>
 
-  const answers = {
-    q1: 'b',
-    q2: 'b',
-    q3: 'a',
-    q4: 'a',
-    q5: 'a'
-  };
+      <script>
+        const quizForm = document.getElementById('quizForm');
+        const feedback = document.getElementById('feedback');
 
-  quizForm.addEventListener('submit', e => {
-    e.preventDefault();
-    let score = 0;
-    const formData = new FormData(quizForm);
-    for (const [key, value] of formData.entries()) {
-      if (answers[key] === value) score++;
-    }
-    feedback.textContent = `Kamu menjawab benar ${score} dari 5 soal. ` + 
-      (score === 5 ? 'Mantap! Kamu jago Kotlin!' : 'Coba lagi ya supaya makin jago.');
-    feedback.style.color = score >= 3 ? '#00aaff' : '#dd3333';
-  });
-</script>
+        const answers = {
+          q1: 'b',
+          q2: 'b',
+          q3: 'a',
+          q4: 'a',
+          q5: 'a'
+        };
 
+        quizForm.addEventListener('submit', e => {
+          e.preventDefault();
+          let score = 0;
+          const formData = new FormData(quizForm);
+          for (const [key, value] of formData.entries()) {
+            if (answers[key] === value) score++;
+          }
+          feedback.textContent = `Kamu menjawab benar ${score} dari 5 soal. ` +
+            (score === 5 ? 'Mantap! Kamu jago Kotlin!' : 'Coba lagi ya supaya makin jago.');
+          feedback.style.color = score >= 3 ? '#00aaff' : '#dd3333';
+        });
+      </script>
